@@ -1,0 +1,26 @@
+body {
+  width: 100%;
+  height: auto;
+  margin: 50px auto 20px;
+  background: url("http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg") no-repeat fixed;
+}
+
+.container {
+  width: 100%;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  z-index: -100;
+  justify-content: center;
+}
+.channel {
+  background-image: url(https://static-cdn.jtvnw.net/ttv-static/404_preview-320x180.jpg);
+  background-repeat: no-repeat;
+  margin: 10px;
+  width: 300px;
+  height: 200px;
+  display: inline-block;
+  list-style: none;
+  margin: 20px 10px 20px 10px;
+  position: relative;
+  left: 10%;
+}

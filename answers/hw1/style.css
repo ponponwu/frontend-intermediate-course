@@ -37,6 +37,9 @@ body {
   top: 5%;
 }
 
+ul {
+  overflow: auto;
+}
 
 .info {
   background: #000;

@@ -27,6 +27,9 @@ body .container {
   filter: brightness(1.5);
   box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.5);
 }
+.col .preview {
+  height: 167px;
+}
 .col .preview img {
   width: 100%;
   opacity: 1;

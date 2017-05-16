@@ -27,10 +27,12 @@ body .container
   filter: brightness(1.5)
   box-shadow: 5px 5px 20px 5px rgba(0,0,0,0.5)
 
-.col .preview img 
-  width: 100%
-  opacity: 1
-  transition: opacity 0.5s
+.col .preview 
+  height: 167px
+  img 
+    width: 100%
+    opacity: 1
+    transition: opacity 0.5s
 
 .col .preview img[data-src]
   opacity: 0

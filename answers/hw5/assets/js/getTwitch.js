@@ -129,7 +129,7 @@ initLazyImages = function() {
 // https://codedump.io/share/PQ7drQ5rPhUQ/1/how-to-do-infinite-scrolling-with-javascript-only-without-jquery
 
 document.addEventListener("scroll", function(event) {
-    if (getDocHeight() == getScrollXY()[1] + window.innerHeight) {
+    if (getDocHeight() <= getScrollXY()[1] + window.innerHeight) {
         offset += 21;
         getData();
     }

@@ -80,12 +80,12 @@ initLazyImages = function() {
     getColumn = function(data) {
         return `
           <div class="preview">
-            <img src="./src/image/preview.jpg" data-src="${data.preview.medium}"/>
+            <img src="./assets/image/preview.jpg" data-src="${data.preview.medium}"/>
           </div>
           <div class="bottom">
             <div class="intro">
               <div class="logo">
-                <img src="./src/image/preview.jpg" data-src="${data.channel.logo}"/>
+                <img src="./assets/image/preview.jpg" data-src="${data.channel.logo}"/>
               </div>
               <div class="desc">
                 <div class="title">

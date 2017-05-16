@@ -40,17 +40,26 @@ initLazyImages = function() {
     getData = function() {
         const clientId = 's44s145uexjgeu9mqqa1s93oc1bnli';
         const limit = 21;
-
-        $.ajax({
-            url: 'https://api.twitch.tv/kraken/streams/?client_id=' + clientId + '&game=League%20of%20Legends&limit=' + limit + '&offset=' + offset,
-            success: (response) => {
-                console.log(response);
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", 'https://api.twitch.tv/kraken/streams/?game=League%20of%20Legends&limit=' + limit + '&offset=' + offset, false);
+        xhr.setRequestHeader('client-ID', clientId)
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var response = JSON.parse(xhr.responseText)
                 getDataCallbakFunc(null, response);
-            },
-            error: (err) => {
-                getDataCallbakFunc(err)
             }
-        })
+        }
+        xhr.send();
+        // $.ajax({
+        //     url: 'https://api.twitch.tv/kraken/streams/?client_id=' + clientId + '&game=League%20of%20Legends&limit=' + limit + '&offset=' + offset,
+        //     success: (response) => {
+        //         console.log(response);
+        //         getDataCallbakFunc(null, response);
+        //     },
+        //     error: (err) => {
+        //         getDataCallbakFunc(err)
+        //     }
+        // })
     },
     getDataCallbakFunc = function(err, data) {
         if (err) {
@@ -59,7 +68,10 @@ initLazyImages = function() {
             const streams = data.streams;
 
             for (const stream of streams) {
-                row.append(getColumn(stream));
+                var div = document.createElement('div');
+                div.className = 'col';
+                div.innerHTML = getColumn(stream);
+                row.append(div);
             }
             initLazyImages();
             handleLazyImages();
@@ -67,7 +79,6 @@ initLazyImages = function() {
     },
     getColumn = function(data) {
         return `
-        <div class="col">
           <div class="preview">
             <img src="./src/image/preview.jpg" data-src="${data.preview.medium}"/>
           </div>
@@ -85,8 +96,7 @@ initLazyImages = function() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>`;
+          </div>`;
     },
     getScrollXY = function() {
         var scrOfX = 0,

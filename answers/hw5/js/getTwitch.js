@@ -1,5 +1,6 @@
 var lazyImages;
 var offset = 0;
+var row = document.querySelector('.row');
 initLazyImages = function() {
         var temp = [];
         lazyImages = document.querySelectorAll('img[data-src]');
@@ -57,9 +58,8 @@ initLazyImages = function() {
         } else {
             const streams = data.streams;
 
-            const $row = $('.row');
             for (const stream of streams) {
-                $row.append(getColumn(stream));
+                row.append(getColumn(stream));
             }
             initLazyImages();
             handleLazyImages();

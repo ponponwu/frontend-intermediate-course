@@ -130,10 +130,11 @@ initLazyImages = function() {
     changeLang = function(e) {
       e = event.target
       var currentLang = e.getAttribute('data-lang');
-      //title.innerHTML = window.I18N[currentLang].TITLE;
+      //title.innerHTML = (currentLang == 'en') ? window.I18N['en'].TITLE : window.I18N['zh-tw'].TITLE;
+      title.innerHTML = window.I18N[currentLang].TITLE;
       console.log(currentLang);
       LANG = currentLang;
-      document.getElementById('row').innerHTML = "";
+      row.innerHTML = "";
       getData();
     };
 // scroll code

@@ -1,0 +1,13 @@
+{
+  "name": "hw5",
+  "version": "1.0.0",
+  "description": "## 本章Properties * 使用sass重構css，並使用Prepros編譯成css",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

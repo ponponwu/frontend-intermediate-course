@@ -81,14 +81,15 @@ var row = document.querySelector('.row');
 var title = document.getElementById('title');
 var LANG = 'zh-tw';
 console.log('123');
-initLazyImages = function initLazyImages() {
+var initLazyImages = function initLazyImages() {
     var temp = [];
     lazyImages = document.querySelectorAll('img[data-src]');
     for (var i = 0; i < lazyImages.length; i++) {
         temp.push(lazyImages[i]);
     }
     lazyImages = temp;
-}, loadImage = function loadImage(img) {
+},
+    loadImage = function loadImage(img) {
     var imgObj = new Image(),
         src = img.getAttribute('data-src');
     imgObj.onload = function () {
@@ -98,10 +99,12 @@ initLazyImages = function initLazyImages() {
         img.removeAttribute('data-src');
     };
     imgObj.src = src;
-}, canLoadImage = function canLoadImage(elem) {
+},
+    canLoadImage = function canLoadImage(elem) {
     var pos = elem.getBoundingClientRect();
     return pos.top >= 0 && pos.left >= 0 && pos.top <= (window.innerHeight || document.documentElement.clientHeight);
-}, handleLazyImages = function handleLazyImages() {
+},
+    handleLazyImages = function handleLazyImages() {
     for (var i = 0; i < lazyImages.length; i++) {
         var image = lazyImages[i];
         // if (canLoadImage(image)) {
@@ -111,7 +114,8 @@ initLazyImages = function initLazyImages() {
         loadImage(lazyImages.splice(i, 1)[0]);
         i--;
     }
-}, getData = function getData() {
+},
+    getData = function getData() {
     var clientId = 's44s145uexjgeu9mqqa1s93oc1bnli';
     var limit = 21;
     var xhr = new XMLHttpRequest();
@@ -134,7 +138,8 @@ initLazyImages = function initLazyImages() {
     //         getDataCallbakFunc(err)
     //     }
     // })
-}, getDataCallbakFunc = function getDataCallbakFunc(err, data) {
+},
+    getDataCallbakFunc = function getDataCallbakFunc(err, data) {
     if (err) {
         console.log(err);
     } else {
@@ -171,9 +176,11 @@ initLazyImages = function initLazyImages() {
         initLazyImages();
         handleLazyImages();
     }
-}, getColumn = function getColumn(data) {
+},
+    getColumn = function getColumn(data) {
     return '\n          <div class="preview">\n            <img src="./assets/image/preview.jpg" data-src="' + data.preview.medium + '"/>\n          </div>\n          <div class="bottom">\n            <div class="intro">\n              <div class="logo">\n                <img src="./assets/image/preview.jpg" data-src="' + data.channel.logo + '"/>\n              </div>\n              <div class="desc">\n                <div class="title">\n                  ' + data.channel.status + '\n                </div>\n                <div class="name">\n                  ' + data.channel.display_name + '\n                </div>\n              </div>\n            </div>\n          </div>';
-}, getScrollXY = function getScrollXY() {
+},
+    getScrollXY = function getScrollXY() {
     var scrOfX = 0,
         scrOfY = 0;
 
@@ -191,10 +198,12 @@ initLazyImages = function initLazyImages() {
         scrOfX = document.documentElement.scrollLeft;
     }
     return [scrOfX, scrOfY];
-}, getDocHeight = function getDocHeight() {
+},
+    getDocHeight = function getDocHeight() {
     var D = document;
     return Math.max(D.body.scrollHeight, D.documentElement.scrollHeight, D.body.offsetHeight, D.documentElement.offsetHeight, D.body.clientHeight, D.documentElement.clientHeight);
-}, changeLang = function changeLang(e) {
+},
+    changeLang = function changeLang(e) {
     e = event.target;
     var currentLang = e.getAttribute('data-lang');
     //title.innerHTML = (currentLang == 'en') ? window.I18N['en'].TITLE : window.I18N['zh-tw'].TITLE;

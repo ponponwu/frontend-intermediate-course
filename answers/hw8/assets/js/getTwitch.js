@@ -9,7 +9,7 @@ let row = document.querySelector('.row');
 const title = document.getElementById('title');  
 let LANG = 'zh-tw';
 console.log('123');
-initLazyImages = function() {
+var initLazyImages = function() {
         var temp = [];
         lazyImages = document.querySelectorAll('img[data-src]');
         for (var i = 0; i < lazyImages.length; i++) {

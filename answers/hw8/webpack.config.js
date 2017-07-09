@@ -22,11 +22,11 @@ module.exports = {
         }
       }
     ]
-  }
-  //plugins
-  // plugins: [
-  //   new uglifyJsPlugin({
-  //
-  //   })
-  // ]
+  },
+  // plugins
+  plugins: [
+    new uglifyJsPlugin({
+
+    })
+  ]
 };

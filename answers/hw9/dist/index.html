@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <style>
+body{background:url(http://cdn.leagueoflegends.com/lolkit/1.1.6/resources/images/bg-default.jpg);background-attachment:fixed;margin:0}body .container{padding:20px;min-height:100vh;background:rgba(0,0,0,.5)}.row{margin:0 auto;width:1000px}.col{background:rgba(11,11,11,.5);width:300px;box-sizing:border-box;display:inline-block;margin-right:20px;margin-top:20px;border:1px solid rgba(255,255,255,.05);transition:all .2s ease-in}.col:hover{cursor:pointer;filter:brightness(1.5);box-shadow:5px 5px 20px 5px rgba(0,0,0,.5)}.col .preview{height:167px}.col .preview img{width:100%;opacity:1;transition:opacity .5s}.col .preview img[data-src]{opacity:0}.col .bottom{padding:10px}.col .intro{position:relative;color:rgba(255,255,255,.7)}.col .intro .desc{position:absolute;top:5px;left:70px}.col .intro .desc .title{width:200px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;margin-bottom:10px}.col .intro .logo{width:50px;border-radius:50%;overflow:hidden}.col .intro .logo img{width:100%;height:50px}h1#title{text-align:center;color:#fff}ul.lang-list{text-align:center;margin:0;padding:0;list-style:none}ul.lang-list a{color:#bbb;text-decoration:none}ul.lang-list a:hover{color:#ccc;text-decoration:underline}ul.lang-list a .active{color:#fff;font-weight:700}ul.lang-list li{display:inline;margin:0 20px}
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="menu">
+          <h1 id="title">中文直播頻道</h1>
+          <ul class="lang-list">
+            <li>
+              <a href="#" data-lang="zh-tw" class="lang-change active">中文</a>
+            </li>
+            <li>
+              <a href="#" data-lang="en" class="lang-change">English</a>
+            </li>
+          </ul>
+
+        </div>
+        <div class="row" id="row">
+          
+        </div>
+    </div>
+</body>
+<!-- <script type="text/javascript" src="./assets/js/getTwitch.js" charset="utf&#45;8"> -->
+  
+<!-- </script> -->
+<script>
+!function(e){function t(o){if(n[o])return n[o].exports;var r=n[o]={exports:{},id:o,loaded:!1};return e[o].call(r.exports,r,r.exports,t),r.loaded=!0,r.exports}var n={};t.m=e,t.c=n,t.p="",t(0)}([function(e,t,n){"use strict";var o={en:n(1),"zh-tw":n(2)},r=void 0,c=0,s=document.querySelector(".row"),a=document.getElementById("title"),i="zh-tw";console.log("123");var l=function(){var e=[];r=document.querySelectorAll("img[data-src]");for(var t=0;t<r.length;t++)e.push(r[t]);r=e},d=function(e){var t=new Image,n=e.getAttribute("data-src");t.onload=function(){n&&(e.src=n),e.removeAttribute("data-src")},t.src=n},u=function(){for(var e=0;e<r.length;e++){r[e];d(r.splice(e,1)[0]),e--}},m=function(){var e=new XMLHttpRequest;e.open("GET","https://api.twitch.tv/kraken/streams/?game=League%20of%20Legends&limit=21&offset="+c+"&language="+i,!1),e.setRequestHeader("client-ID","s44s145uexjgeu9mqqa1s93oc1bnli"),e.onreadystatechange=function(){if(4==e.readyState&&200==e.status){var t=JSON.parse(e.responseText);f(null,t)}},e.send()},f=function(e,t){if(e)console.log(e);else{var n=t.streams,o=!0,r=!1,c=void 0;try{for(var a,i=n[Symbol.iterator]();!(o=(a=i.next()).done);o=!0){var d=a.value,m=document.createElement("div");m.className="col",m.innerHTML=v(d),s.append(m)}}catch(e){r=!0,c=e}finally{try{!o&&i.return&&i.return()}finally{if(r)throw c}}l(),u()}},v=function(e){return'\n          <div class="preview">\n            <img src="./assets/image/preview.jpg" data-src="'+e.preview.medium+'"/>\n          </div>\n          <div class="bottom">\n            <div class="intro">\n              <div class="logo">\n                <img src="./assets/image/preview.jpg" data-src="'+e.channel.logo+'"/>\n              </div>\n              <div class="desc">\n                <div class="title">\n                  '+e.channel.status+'\n                </div>\n                <div class="name">\n                  '+e.channel.display_name+"\n                </div>\n              </div>\n            </div>\n          </div>"},g=function(){var e=0,t=0;return"number"==typeof window.pageYOffset?(t=window.pageYOffset,e=window.pageXOffset):document.body&&(document.body.scrollLeft||document.body.scrollTop)?(t=document.body.scrollTop,e=document.body.scrollLeft):document.documentElement&&(document.documentElement.scrollLeft||document.documentElement.scrollTop)&&(t=document.documentElement.scrollTop,e=document.documentElement.scrollLeft),[e,t]},p=function(){var e=document;return Math.max(e.body.scrollHeight,e.documentElement.scrollHeight,e.body.offsetHeight,e.documentElement.offsetHeight,e.body.clientHeight,e.documentElement.clientHeight)},h=function(e){var t=(e=event.target).getAttribute("data-lang");a.innerHTML=o[t].TITLE,console.log(t),i=t,s.innerHTML="",m()};document.addEventListener("scroll",function(e){p()<=g()[1]+window.innerHeight&&(c+=21,m())});var y=document.getElementsByClassName("lang-change");Array.from(y).forEach(function(e){e.addEventListener("click",h)}),m()},function(e,t){"use strict";e.exports={TITLE:"Steams English Version"}},function(e,t){"use strict";e.exports={TITLE:"中文直播頻道"}}]);
+</script>
+</html>
